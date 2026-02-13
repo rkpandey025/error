@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Valentine 💖</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 40px;
+        }
+        p {
+            font-size: 20px;
+        }
+        button {
+            background-color: white;
+            color: #ff4d6d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ffe6ec;
+        }
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 24px;
+    animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <h1>Happy Valentine’s Day, BETU ❤️</h1>
+<div id="lockScreen" style="
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:linear-gradient(to right, #ff758c, #ff7eb3);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    z-index:9999;
+    text-align:center;
+">
+
+    <h1 style="font-size:32px;">🔐 Locked with Love</h1>
+    <p style="font-size:18px;">Enter the secret name ❤️</p>
+
+    <input id="secretCode" type="text" placeholder="Hint:  nickname 😉"
+        style="padding:12px; font-size:18px; border-radius:10px; border:none; text-align:center;">
+
+    <button onclick="unlockLove()" style="
+        margin-top:20px;
+        padding:12px 30px;
+        font-size:18px;
+        border-radius:30px;
+        border:none;
+        background:white;
+        color:#ff4d6d;
+        cursor:pointer;
+    ">
+        Unlock 💖
+    </button>
+
+    <p id="errorMsg" style="margin-top:15px; color:#ffe6ec;"></p>
+</div>
+
+
+    <p>
+    Dear BETU 💖 <br><br>
+    From the moment you came into my life,  
+    everything changed for the better.  
+    Your smile is my favorite thing,  
+    and your presence makes my world complete. 💕
+</p>
+
+
+    <h2>Will you be my Valentine? 💖</h2>
+<img src="photo1.jpeg" width="250" style="border-radius:20px; margin:10px;">
+<img src="photo2.jpeg" width="250" style="border-radius:20px; margin:10px;">
+<img src="photo3.jpeg" width="250" style="border-radius:20px; margin:10px;">
+<img src="photo4.jpeg" width="250" style="border-radius:20px; margin:10px;">
+<img src="photo5.jpeg" width="250" style="border-radius:20px; margin:10px;">
+
+    <button onclick="playMusicAndLove()">
+    Yes ❤️
+</button>
+<div id="loveLetter" style="display:none; margin-top:30px; font-size:22px; line-height:1.6;">
+    BETU ❤️ <br><br>
+    You are not just my Valentine,  
+    you are my safe place, my smile on hard days,  
+    and my favorite thought every night.  
+    With you, even ordinary moments feel magical. ✨  
+    I choose you — today, tomorrow, and always. 💖
+</div>
+<p id="counter" style="font-size:22px; margin-top:20px;"></p>
+
+
+
+<script>
+function unlockLove() {
+    let code = document.getElementById("secretCode").value.trim().toLowerCase();
+
+    if (code === "betu") {
+        document.getElementById("lockScreen").style.display = "none";
+    } else {
+        document.getElementById("errorMsg").innerText =
+            "Oops 😅 try again, my love 💕";
+    }
+}
+
+function playMusicAndLove() {
+    document.getElementById("bgMusic").play();
+    document.getElementById("loveLetter").style.display = "block";
+    showDays();
+}
+
+// Days counter
+function showDays() {
+    const startDate = new Date("2020-07-05"); // 👉 change to YOUR special date
+    const today = new Date();
+    const days = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+
+    document.getElementById("counter").innerHTML =
+        "💖 Loving you for " + days + " beautiful days, BETU 💖";
+}
+
+// Floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
+}, 500);
+</script>
+
+
+
+
+<p>— Yours forever, Rakesh 💘</p>
+</body>
+<audio id="bgMusic" loop>
+    <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+
+</html>
